@@ -1,0 +1,129 @@
+/* Initial settings */
+* {
+    padding: 0;
+    margin: 0;
+    color: #4FCBE9;
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(45deg,
+    #17273b, #1a232c, #031022,
+    #050f0f, #050e09, #0a0322);
+    background-size: 600%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: move-bg 20s linear infinite;
+}
+
+/* Main container */
+#main-container {
+    width: 80%;
+    height: 60%;
+    border-radius: 1rem;
+    background: linear-gradient(to bottom, #283d41, #152022);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+#main-container::before, #main-container::after {
+    content: '';
+    width: 100%;
+    height: calc(100% + .5rem);
+    position: absolute;
+    background: linear-gradient(to bottom, #192629, #152022);
+    border-radius: inherit;
+    left: .5rem;
+    top: 0;
+    z-index: -99;
+}
+
+#main-container::after {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    padding: .2rem;
+    transform: translate(-.1rem, -.1rem);
+    filter: brightness(1.5);
+}
+
+/* Generate button */
+#generate-btn {
+    width: 40%;
+    height: 10%;
+    /* margin-bottom: 10%; */
+    background: linear-gradient(to bottom, #16519F, #1d6fdb);
+    border: none;
+    border-radius: inherit;
+    padding: .6rem;
+    cursor: pointer;
+    box-shadow: #031022 0 .2rem 0 .1rem;
+    transition: all .3s ease-in-out;
+}
+
+#generate-btn:hover {
+    transition-duration: 100ms;
+    transform: translateY(-.2rem);
+    filter: brightness(1.5);
+    color: white;
+}
+
+#generate-btn:active {
+    transition-duration: 15ms;
+    filter: brightness(.5);
+    transform: translateY(.3rem);
+    box-shadow: #031022 0 0 0 0;
+    color: white;
+}
+
+#quote-container {
+    background: inherit;
+    filter: brightness(2);
+    border-radius: inherit;
+    width: 80%;
+    height: 40%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#quote-p {
+    color: white;
+    font-style: italic;
+    filter: inherit;
+}
+
+.focus-in-contract {
+    animation: focus-in-contract 500ms cubic-bezier(.25, .46, .45, .94) both;
+}
+
+@keyframes move-bg {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes focus-in-contract {
+    from {
+        letter-spacing: 1em;
+        filter: blur(12px);
+        opacity: 0;
+    }
+    to {
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
