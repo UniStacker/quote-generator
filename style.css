@@ -29,6 +29,7 @@ body {
     align-items: center;
     justify-content: space-around;
     position: relative;
+    top: -10%;
 }
 
 #main-container::before, #main-container::after {
